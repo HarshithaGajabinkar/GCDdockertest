@@ -8,7 +8,7 @@ WORKDIR /usr/share/nginx/html
 COPY index.html /usr/share/nginx/html
 
 # Expose port 80 (default port for HTTP)
-EXPOSE 82
+EXPOSE 3111
 
 CMD ["nginx", "-g", "daemon off;"]
  
