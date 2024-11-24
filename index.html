@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCD Calculator</title>
+</head>
+<body>
+
+    <h2>GCD Calculator</h2>
+
+    <!-- Input Fields for two numbers -->
+    <label for="num1">Enter first number:</label>
+    <input type="number" id="num1" required><br><br>
+    
+    <label for="num2">Enter second number:</label>
+    <input type="number" id="num2" required><br><br>
+
+    <!-- Button to trigger GCD calculation -->
+    <button onclick="calculateGCD()">Calculate GCD</button><br><br>
+
+    <!-- Display result -->
+    <h3 id="result"></h3>
+
+    <script>
+        // Function to calculate GCD using Euclidean algorithm
+        function calculateGCD() {
+            // Get input values
+            var num1 = parseInt(document.getElementById('num1').value);
+            var num2 = parseInt(document.getElementById('num2').value);
+
+            // Ensure valid inputs
+            if (isNaN(num1) || isNaN(num2) || num1 <= 0 || num2 <= 0) {
+                document.getElementById('result').innerHTML = "Please enter valid positive integers.";
+                return;
+            }
+
+            // Euclidean algorithm to calculate GCD
+            while (num2 !== 0) {
+                let temp = num2;
+                num2 = num1 % num2;
+                num1 = temp;
+            }
+
+            // Display result
+            document.getElementById('result').innerHTML = "The GCD is: " + num1;
+        }
+    </script>
+
+</body>
+</html>
